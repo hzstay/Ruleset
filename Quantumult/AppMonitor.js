@@ -56,13 +56,6 @@ function dealResponse(appId, res) {
     }
 }
 
-let stored = $prefs.valueForKey(FIELD);
-    if (stored) {
-        MONITOR = JSON.parse(stored);
-    }
-console.log(stored);
-console.log(MONITOR);
-
 (async function main() {
     loadMonitor();
     await Promise.all(APPS.map(appId => $task.fetch(genRequest(appId)).then(res => dealResponse(appId, res)).catch(err => console.log(err))));
