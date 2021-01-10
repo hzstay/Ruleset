@@ -52,9 +52,16 @@ function dealResponse(appId, res) {
         NOTICE.push(`${flag(app.country)}${app.trackName}:版本【${app.version}】`);
     } else if (existed.version != app.version) {
         MONITOR[trackId] = app;
-        NOTICE.push(`${ flag(app.country)}${app.trackName}:升级【${app.version}】`);
+        NOTICE.push(`${flag(app.country)}${app.trackName}:升级【${app.version}】`);
     }
 }
+
+let stored = $prefs.valueForKey(FIELD);
+    if (stored) {
+        MONITOR = JSON.parse(stored);
+    }
+console.log(stored);
+console.log(MONITOR);
 
 (async function main() {
     loadMonitor();
