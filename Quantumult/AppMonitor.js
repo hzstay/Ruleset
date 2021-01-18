@@ -5,14 +5,14 @@ let MONITOR = {};
 let NOTICE = [];
 
 function loadMonitor() {
-    let stored = $prefs.valueForKey(FIELD);
+    let stored = $pref.valueForKey(FIELD);
     if (stored) {
         MONITOR = JSON.parse(stored);
     }
 }
 
 function storeMonitor() {
-    $prefs.setValueForKey(JSON.stringify(MONITOR), FIELD);
+    $pref.setValueForKey(JSON.stringify(MONITOR), FIELD);
 }
 
 function flag(country) {
