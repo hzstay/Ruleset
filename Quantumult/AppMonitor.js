@@ -62,6 +62,8 @@ function dealResponse(appId, res) {
     if (NOTICE.length > 0) {
         storeMonitor();
         notify();
+    } else {
+        console.log("版本没有变化");
     }
     $done();
 })();
